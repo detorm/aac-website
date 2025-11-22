@@ -13,24 +13,96 @@
     />
     <script src="./scripts/swiper.js"></script>
     <script src="./scripts/index.js" defer></script>
+    <script>
+const preloaderImages = [
+  "./aac-images/aac-slideshow/slide1.jpg",
+  "./aac-images/aac-slideshow/slide2.jpg",
+  "./aac-images/aac-slideshow/slide3.jpg",
+  "./aac-images/aac-slideshow/slide4.jpg",
+  "./aac-images/aac-slideshow/slide5.jpg",
+  "./aac-images/aac-slideshow/slide6.jpg",
+  "./aac-images/aac-slideshow/slide7.jpg",
+  "./aac-images/aac-slideshow/slide8.jpg",
+];
+
+let currentImage = 0;
+const intervalSpeed = 600; // YOU CONTROL SPEED HERE
+
+const imagesContainer = document.getElementById("preloader-images");
+const barsContainer = document.getElementById("preloader-bars");
+
+// CREATE IMAGES
+preloaderImages.forEach(src => {
+  const wrapper = document.createElement("div");
+  wrapper.style.position = "absolute";
+  wrapper.style.inset = "0";
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.className = "preloader-image";
+
+  const overlay = document.createElement("div");
+  overlay.className = "preloader-overlay";
+
+  wrapper.appendChild(img);
+  wrapper.appendChild(overlay);
+  imagesContainer.appendChild(wrapper);
+});
+
+// CREATE BARS
+preloaderImages.forEach(() => {
+  const bar = document.createElement("div");
+  bar.className = "bar";
+  barsContainer.appendChild(bar);
+});
+
+const bars = document.querySelectorAll(".bar");
+const images = document.querySelectorAll(".preloader-image");
+
+// UPDATE IMAGE + BAR
+function updateSlide() {
+  images.forEach((img, i) => {
+    img.style.opacity = i === currentImage ? "1" : "0";
+  });
+
+  bars.forEach((bar, i) => {
+    bar.classList.toggle("active", i <= currentImage);
+  });
+}
+
+// MAIN SLIDESHOW LOOP
+const interval = setInterval(() => {
+  currentImage++;
+
+  if (currentImage >= preloaderImages.length) {
+    clearInterval(interval);
+
+    const preloader = document.getElementById("preloader");
+    preloader.classList.add("exit");
+
+    setTimeout(() => preloader.remove(), 800); // same fade time as React
+    return;
+  }
+
+  updateSlide();
+}, intervalSpeed);
+
+// initial render
+updateSlide();
+</script>
+
   </head>
   <body>
-    <div id="preloader">
-  <div class="slideshow-container">
-    <img src="./aac-images/aac-slideshow/slide1.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide2.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide3.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide4.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide5.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide6.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide7.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide8.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide9.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide10.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide11.jpg" class="slide">
-    <img src="./aac-images/aac-slideshow/slide12.jpg" class="slide">
+    <div id="preloader" class="preloader">
+  <div id="preloader-images"></div>
+
+  <div class="preloader-center">
+    <h1>Accounting & Auditing Club</h1>
+
+    <div id="preloader-bars" class="bars"></div>
   </div>
 </div>
+
 
     <header>
       <div class="container">
