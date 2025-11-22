@@ -6,15 +6,35 @@
     <title>AAC - Accounting and Auditing club</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="./styles/slider.css" />
+    <link rel="stylesheet" href="./styles/upcoming-events.css" />
     <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-/>
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
     <script src="./scripts/swiper.js"></script>
     <script src="./scripts/index.js" defer></script>
   </head>
   <body>
-    <header>
+    <!-- PRELOADER -->
+<div id="preloader">
+  <div class="slideshow">
+    <!-- Images injected by JS OR you can manually put <img> tags -->
+  </div>
+
+  <div class="hud">
+    <div class="progressWrap">
+      <div class="progressBar" id="progressBar"></div>
+    </div>
+
+    <div class="status" id="statusText">Loading — 0%</div>
+
+    <button class="skipBtn" id="skipBtn">Skip</button>
+  </div>
+</div>
+
+<!-- YOUR SITE CONTENT -->
+<div id="site-content" style="visibility:hidden;">
+   <header>
       <div class="container">
         <div class="logo">
           <img src="./aac-images/aac-logo-transparent.png" alt="AAC logo" />
@@ -22,8 +42,9 @@
 
         <nav class="links" role="navigation" aria-label="Main navigation">
           <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Events</a>
+          <a href="#about-us">About</a>
+          <a href="#board">Board</a>
+          <a href="#events">Events</a>
           <a href="#">Contact</a>
         </nav>
 
@@ -44,7 +65,12 @@
             </p>
             <div class="hero-actions">
               <button class="btn-primary">Get Started</button>
-              <button class="btn-ghost">Learn More</button>
+              <button
+                class="btn-ghost"
+                onclick="window.open('https://www.instagram.com/nu__aac/', '_blank')"
+              >
+                Learn More
+              </button>
             </div>
           </div>
 
@@ -55,7 +81,7 @@
       </section>
 
       <!-- About Us -->
-      <section class="about-us">
+      <section class="about-us" id="about-us">
         <div class="container about-container">
           <h1>About AAC — what we are</h1>
           <div class="about-text">
@@ -74,7 +100,7 @@
         </div>
       </section>
 
-      <section class="base-template">
+      <section class="base-template" id="board">
         <div class="container">
           <div class="wrapper base-template__wrapper">
             <h1 class="base-template__title">Meet our board</h1>
@@ -90,12 +116,12 @@
 
                     <div
                       class="swiper-slide slide"
-                      data-title="Golden Silence"
-                      data-desc="Embrace the harmony of colors and calm."
+                      data-title="PRESIDENTIAL"
+                      data-desc="President, and her vices."
                     >
                       <img
-                      src="./aac-images/aac-board/aac-bastyqs.jpg"
-                        alt="Golden Silence"
+                        src="./aac-images/aac-board/aac-bastyqs.jpg"
+                        alt="PRESIDENTIAL"
                         width="768"
                         height="1024"
                         loading="lazy"
@@ -106,12 +132,12 @@
 
                     <div
                       class="swiper-slide slide"
-                      data-title="Frozen Majesty"
-                      data-desc="Touch the purity in every breath of frosty air."
+                      data-title="HR"
+                      data-desc="HR team of AAC."
                     >
                       <img
-                      src="./aac-images/aac-board/aac-hr.jpg"
-                        alt="Frozen Majesty"
+                        src="./aac-images/aac-board/aac-hr.jpg"
+                        alt="HR"
                         width="768"
                         height="1152"
                         loading="lazy"
@@ -122,11 +148,11 @@
 
                     <div
                       class="swiper-slide slide"
-                      data-title="Hidden Beauty"
-                      data-desc="Discover the mystery veiled in clouds."
+                      data-title="PR"
+                      data-desc="People responsible for PR."
                     >
                       <img
-                      src="./aac-images/aac-board/aac-pr.jpg"
+                        src="./aac-images/aac-board/aac-pr.jpg"
                         alt="Hidden Beauty"
                         width="768"
                         height="929"
@@ -138,11 +164,11 @@
 
                     <div
                       class="swiper-slide slide"
-                      data-title="Sunlit Heights"
-                      data-desc="Breathe freely in the warmth of freedom."
+                      data-title="Event"
+                      data-desc="Heart of all events organized by AAC."
                     >
                       <img
-                      src="./aac-images/aac-board/aac-event.jpg"
+                        src="./aac-images/aac-board/aac-event.jpg"
                         alt="Sunlit Heights"
                         width="768"
                         height="1152"
@@ -154,11 +180,11 @@
 
                     <div
                       class="swiper-slide slide"
-                      data-title="Awakening Peaks"
-                      data-desc="Feel life return to every slope."
+                      data-title="Education"
+                      data-desc="Providers of proffesional knowledge."
                     >
                       <img
-                      src="./aac-images/aac-board/aac-education.jpg"
+                        src="./aac-images/aac-board/aac-education.jpg"
                         alt="Awakening Peaks"
                         width="768"
                         height="768"
@@ -167,8 +193,6 @@
                     </div>
 
                     <!-- Background Slide 6 -->
-
-                    
                   </div>
                 </div>
 
@@ -178,7 +202,7 @@
 
                     <div class="swiper-slide centered-swiper__slide">
                       <img
-                      src="./aac-images/aac-board/aac-bastyqs.jpg"
+                        src="./aac-images/aac-board/aac-bastyqs.jpg"
                         alt="Golden Silence"
                         width="768"
                         height="1024"
@@ -190,7 +214,7 @@
 
                     <div class="swiper-slide centered-swiper__slide">
                       <img
-                      src="./aac-images/aac-board/aac-hr.jpg"
+                        src="./aac-images/aac-board/aac-hr.jpg"
                         alt="Frozen Majesty"
                         width="768"
                         height="1152"
@@ -202,7 +226,7 @@
 
                     <div class="swiper-slide centered-swiper__slide">
                       <img
-                      src="./aac-images/aac-board/aac-pr.jpg"
+                        src="./aac-images/aac-board/aac-pr.jpg"
                         alt="Hidden Beauty"
                         width="768"
                         height="929"
@@ -214,7 +238,7 @@
 
                     <div class="swiper-slide centered-swiper__slide">
                       <img
-                      src="./aac-images/aac-board/aac-event.jpg"
+                        src="./aac-images/aac-board/aac-event.jpg"
                         alt="Sunlit Heights"
                         width="768"
                         height="1152"
@@ -226,7 +250,7 @@
 
                     <div class="swiper-slide centered-swiper__slide">
                       <img
-                      src="./aac-images/aac-board/aac-education.jpg"
+                        src="./aac-images/aac-board/aac-education.jpg"
                         alt="Awakening Peaks"
                         width="768"
                         height="768"
@@ -235,14 +259,12 @@
                     </div>
 
                     <!-- Centered Slide 6 -->
-
-                   
                   </div>
                 </div>
 
                 <!-- Sliders Buttons -->
 
-                <button class="slider-section__prev-button" >&lt;</button>
+                <button class="slider-section__prev-button">&lt;</button>
 
                 <button class="slider-section__next-button">&gt;</button>
 
@@ -260,6 +282,20 @@
           </div>
         </div>
       </section>
+
+      <section class="upcoming-events" id="events">
+        <div class="container">
+          <h2>Upcoming Events</h2>
+          <div class="events-grid">
+            <div class="event-card">
+              <img src="./aac-images/aac-events/aac-event-1.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+</div>
+
+   
   </body>
 </html>

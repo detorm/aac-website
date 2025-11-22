@@ -6,6 +6,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;  /* height of your fixed header */
 }
 
 body {
@@ -22,13 +24,13 @@ body {
 
 /* ---------- Site container / header ---------- */
 header {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.871);
+  /* background: transparent; */
   position: sticky;
   top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(20px);
+  z-index: 50;
+  backdrop-filter: blur(40px);
   will-change: backdrop-filter;
-  /* background: rgba(255, 255, 255, 0.1); */
 }
 .container {
   max-width: 1200px;
@@ -103,6 +105,7 @@ header {
 /* Left column (text) */
 .hero-text {
   align-self: center;
+  z-index: 0;
 }
 .hero-text h1 {
   font-size: clamp(34px, 5vw, 56px);
@@ -151,7 +154,7 @@ header {
   border-radius: 14px;
   display: inline-block;
   box-shadow: 0 20px 50px rgba(7,18,42,0.12);
-  transform: translateZ(0);
+  /* transform: translateZ(0); */
   object-fit: cover;
   border: 1px solid rgba(8,20,40,0.04);
 }
@@ -279,4 +282,103 @@ header {
 .swiper{
   width: 600px;
   height: 300px;
+}
+
+/* PRELOADER LAYOUT */
+#preloader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: white;
+  z-index: 99999;
+  overflow: hidden;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* SLIDESHOW */
+.slideshow {
+  position: relative;
+  width: min(100vw, 1200px);
+  height: min(60vh, 720px);
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.8s ease, transform 6s linear;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* PROGRESS HUD */
+.hud {
+  width: min(100vw, 1200px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progressWrap {
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  width: 0%;
+  background: white;
+  transition: width 0.25s;
+}
+
+.status {
+  min-width: 110px;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.skipBtn {
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* HIDE SITE UNTIL READY */
+#site-content {
+  visibility: hidden;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .slideshow {
+    height: 50vh;
+    border-radius: 0;
+  }
+  .hud {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .status {
+    text-align: left;
+  }
 }

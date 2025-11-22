@@ -1,4 +1,110 @@
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
+
+  const IMAGES = [
+  "./aac-images/aac-bastyqs.jpg",
+  "./aac-images/aac-pr.jpg",
+  "./aac-images/aac-hr.jpg",
+  "./aac-images/aac-event.jpg",
+];
+
+  const SLIDE_DURATION = 1600;
+  const MAX_PRELOAD_TIME = 7000;
+  const MIN_SHOW = 600;
+
+  const preloader = document.getElementById("preloader");
+  const slideshow = preloader.querySelector(".slideshow");
+  const progressBar = document.getElementById("progressBar");
+  const statusText = document.getElementById("statusText");
+  const skipBtn = document.getElementById("skipBtn");
+  const siteContent = document.getElementById("site-content");
+
+  const slidesPRELOAD = IMAGES.map((src, i) => {
+    const img = document.createElement("img");
+    img.className = "slide";
+    img.alt = "";
+    img.dataset.index = i;
+    slideshow.appendChild(img);
+    return img;
+  });
+
+  let loaded = 0;
+  let index = 0;
+  let interval;
+  const startTime = Date.now();
+
+  function updateProgress() {
+    const pct = Math.round((loaded / IMAGES.length) * 100);
+    progressBar.style.width = pct + "%";
+    statusText.textContent = `Loading — ${pct}%`;
+  }
+
+  function preload() {
+    return new Promise((resolve) => {
+      IMAGES.forEach((url, i) => {
+        const img = new Image();
+        img.onload = img.onerror = () => {
+          slidesPRELOAD[i].src = url;
+          loaded++;
+          updateProgress();
+          if (loaded === IMAGES.length) resolve();
+        };
+        img.src = url;
+      });
+
+      setTimeout(resolve, MAX_PRELOAD_TIME);
+    });
+  }
+
+  function startSlideshow() {
+    slidesPRELOAD[0].classList.add("active");
+    interval = setInterval(() => {
+      slidesPRELOAD[index].classList.remove("active");
+      index = (index + 1) % slidesPRELOAD.length;
+      slidesPRELOAD[index].classList.add("active");
+    }, SLIDE_DURATION);
+  }
+
+  function stopSlideshow() {
+    clearInterval(interval);
+  }
+
+  function hidePreloader() {
+    stopSlideshow();
+    const elapsed = Date.now() - startTime;
+    const wait = Math.max(0, MIN_SHOW - elapsed);
+
+    setTimeout(() => {
+      preloader.style.transition = "opacity 0.4s ease";
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.remove();
+        siteContent.style.visibility = "visible";
+      }, 420);
+    }, wait);
+  }
+
+  skipBtn.addEventListener("click", hidePreloader);
+
+  preload().then(() => {
+    startSlideshow();
+
+    if (document.readyState === "complete") {
+      setTimeout(hidePreloader, 800);
+    } else {
+      window.addEventListener("load", () => {
+        setTimeout(hidePreloader, 500);
+      });
+    }
+
+    setTimeout(hidePreloader, MAX_PRELOAD_TIME + 1500);
+  });
+
+
+  // SLIDER SCRIPTS
   const buttonPrev = document.querySelector(".slider-section__prev-button");
   const buttonNext = document.querySelector(".slider-section__next-button");
 
