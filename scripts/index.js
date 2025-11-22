@@ -5,10 +5,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const IMAGES = [
-  "./aac-images/aac-bastyqs.jpg",
-  "./aac-images/aac-pr.jpg",
-  "./aac-images/aac-hr.jpg",
-  "./aac-images/aac-event.jpg",
+  "./aac-images/aac-board/aac-bastyqs.jpg",
+  "./aac-images/aac-board/aac-pr.jpg",
+  "./aac-images/aac-board/aac-hr.jpg",
+  "./aac-images/aac-board/aac-event.jpg",
 ];
 
   const SLIDE_DURATION = 1600;
