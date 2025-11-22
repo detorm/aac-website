@@ -1,3 +1,45 @@
+// Array of images for slideshow
+const images = [
+  "./aac-images/aac-slideshow/slide1.jpg",
+  "./aac-images/aac-slideshow/slide2.jpg",
+  "./aac-images/aac-slideshow/slide3.jpg",
+  "./aac-images/aac-slideshow/slide4.jpg",
+  "./aac-images/aac-slideshow/slide5.jpg",
+  "./aac-images/aac-slideshow/slide6.jpg",
+  "./aac-images/aac-slideshow/slide7.jpg",
+  "./aac-images/aac-slideshow/slide8.jpg",
+  "./aac-images/aac-slideshow/slide9.jpg",
+  "./aac-images/aac-slideshow/slide10.jpg",
+];
+
+const preloaderImg = document.getElementById("preloader-img");
+let index = 0;
+
+// Change image rapidly
+const interval = setInterval(() => {
+  index = (index + 1) % images.length;
+  preloaderImg.src = images[index];
+}, 100); // change every 100ms (0.1s)
+
+// Remove preloader after 3.5 seconds
+setTimeout(() => {
+  clearInterval(interval); // stop slideshow
+  const preloader = document.getElementById("preloader");
+  preloader.style.opacity = 0;
+  // wait for fade transition
+  setTimeout(() => {
+    preloader.style.display = "none";
+    document.getElementById("content").style.display = "block";
+    document.body.style.transform = "translateY(10px)";
+    document.body.style.animation = "fadeInUp 0.5s ease-out forwards";
+  }, 1000); // match CSS transition duration
+}, 2000);
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const buttonPrev = document.querySelector(".slider-section__prev-button");
   const buttonNext = document.querySelector(".slider-section__next-button");
@@ -33,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Background Slider Initialization
 
   const backgroundSwiper = new Swiper(".background-swiper", {
-    slidesPerView: "auto",
+    slidesPerView: 5,
     spaceBetween: 45,
     centeredSlides: true,
     initialSlide: 2,

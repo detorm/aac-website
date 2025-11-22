@@ -1,0 +1,23 @@
+[
+  {
+    "title": "AAC Annual Gala",
+    "date": "2025-10-10", 
+    "description": "A wonderful evening celebrating achievements.",
+    "instagram": "https://www.instagram.com/p/abc123",
+    "type": "past"
+  },
+  {
+    "title": "Team Workshop",
+    "date": "2025-11-25",
+    "description": "Internal team skill-building event.",
+    "instagram": "https://www.instagram.com/p/xyz456",
+    "type": "upcoming"
+  },
+  {
+    "title": "Community Meetup",
+    "date": "2025-11-15",
+    "description": "Open meetup for AAC community.",
+    "instagram": null,
+    "type": "past"
+  }
+]
