@@ -17,26 +17,45 @@ const images = [
 const preloaderImg = document.getElementById("preloader-img");
 let index = 0;
 
-// Change image rapidly
-const interval = setInterval(() => {
-  index = (index + 1) % images.length;
-  preloaderImg.src = images[index];
-}, 250); // change every 100ms (0.1s)
+const loadedImages = [];
+let imagesLoadedCount = 0;
 
-// Remove preloader after 3.5 seconds
-setTimeout(() => {
-  clearInterval(interval); // stop slideshow
-  const preloader = document.getElementById("preloader");
-  preloader.style.opacity = 0;
-  // wait for fade transition
+images.forEach(src => {
+  const img = new Image();
+  img.src = src;
+  img.onload = () => {
+    imagesLoadedCount++;
+    loadedImages.push(img);
+    
+    // Once all images are loaded, start slideshow
+    if (imagesLoadedCount === images.length) {
+      startSlideshow();
+    }
+  };
+});
+function startSlideshow() {
+  // Set first image
+  preloaderImg.src = images[0];
+
+  // Change images rapidly
+  const interval = setInterval(() => {
+    index = (index + 1) % images.length;
+    preloaderImg.src = images[index];
+  }, 200); // adjust speed as needed
+
+  // Remove preloader after 3.5 seconds
   setTimeout(() => {
-    preloader.style.display = "none";
-    document.getElementById("content").style.display = "block";
-    document.body.style.transform = "translateY(10px)";
-    document.body.style.animation = "fadeInUp 0.5s ease-out forwards";
-  }, 1000); // match CSS transition duration
-}, 3000);
-
+    clearInterval(interval);
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = 0;
+    setTimeout(() => {
+      preloader.style.display = "none";
+      document.getElementById("content").style.display = "block";
+      document.body.style.transform = "translateY(10px)";
+      document.body.style.animation = "fadeInUp 0.5s ease-out forwards";
+    }, 1000); // match CSS transition
+  }, 3500);
+}
 
 
 
