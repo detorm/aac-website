@@ -1,15 +1,17 @@
 // Array of images for slideshow
+
+
 const images = [
-  "./aac-images/aac-slideshow/slide1.jpg",
-  "./aac-images/aac-slideshow/slide2.jpg",
-  "./aac-images/aac-slideshow/slide3.jpg",
-  "./aac-images/aac-slideshow/slide4.jpg",
-  "./aac-images/aac-slideshow/slide5.jpg",
-  "./aac-images/aac-slideshow/slide6.jpg",
-  "./aac-images/aac-slideshow/slide7.jpg",
-  "./aac-images/aac-slideshow/slide8.jpg",
-  "./aac-images/aac-slideshow/slide9.jpg",
-  "./aac-images/aac-slideshow/slide10.jpg",
+  "/aac-images/aac-slideshow/slide1.jpg",
+  "/aac-images/aac-slideshow/slide2.jpg",
+  "/aac-images/aac-slideshow/slide3.jpg",
+  "/aac-images/aac-slideshow/slide4.jpg",
+  "/aac-images/aac-slideshow/slide5.jpg",
+  "/aac-images/aac-slideshow/slide6.jpg",
+  "/aac-images/aac-slideshow/slide7.jpg",
+  "/aac-images/aac-slideshow/slide8.jpg",
+  "/aac-images/aac-slideshow/slide9.jpg",
+  "/aac-images/aac-slideshow/slide10.jpg",
 ];
 
 const preloaderImg = document.getElementById("preloader-img");
@@ -33,7 +35,7 @@ setTimeout(() => {
     document.body.style.transform = "translateY(10px)";
     document.body.style.animation = "fadeInUp 0.5s ease-out forwards";
   }, 1000); // match CSS transition duration
-}, 2000);
+}, 3000);
 
 
 
