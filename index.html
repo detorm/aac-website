@@ -15,26 +15,24 @@
     <script src="./scripts/index.js" defer></script>
   </head>
   <body>
-    <!-- PRELOADER -->
-<div id="preloader">
-  <div class="slideshow">
-    <!-- Images injected by JS OR you can manually put <img> tags -->
-  </div>
-
-  <div class="hud">
-    <div class="progressWrap">
-      <div class="progressBar" id="progressBar"></div>
-    </div>
-
-    <div class="status" id="statusText">Loading — 0%</div>
-
-    <button class="skipBtn" id="skipBtn">Skip</button>
+    <div id="preloader">
+  <div class="slideshow-container">
+    <img src="./aac-images/aac-slideshow/slide1.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide2.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide3.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide4.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide5.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide6.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide7.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide8.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide9.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide10.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide11.jpg" class="slide">
+    <img src="./aac-images/aac-slideshow/slide12.jpg" class="slide">
   </div>
 </div>
 
-<!-- YOUR SITE CONTENT -->
-<div id="site-content" style="visibility:hidden;">
-   <header>
+    <header>
       <div class="container">
         <div class="logo">
           <img src="./aac-images/aac-logo-transparent.png" alt="AAC logo" />
@@ -287,15 +285,65 @@
         <div class="container">
           <h2>Upcoming Events</h2>
           <div class="events-grid">
+            <!-- Event Card 1 -->
             <div class="event-card">
-              <img src="./aac-images/aac-events/aac-event-1.jpg" alt="">
+              <img
+                src="./aac-images/events/event1.jpg"
+                alt="Accounting Workshop"
+              />
+              <div class="event-info">
+                <h3>Accounting Workshop</h3>
+                <p class="event-date">Dec 5, 2025 | Auditorium</p>
+                <p class="event-desc">
+                  Learn accounting basics with our professional mentors.
+                </p>
+                <div class="event-buttons">
+                  <a
+                    href="https://forms.gle/..."
+                    target="_blank"
+                    class="btn-primary"
+                    >RSVP</a
+                  >
+                  <a
+                    href="https://instagram.com/..."
+                    target="_blank"
+                    class="btn-ghost"
+                    >Instagram</a
+                  >
+                </div>
+              </div>
             </div>
+
+            <!-- Event Card 2 -->
+            <div class="event-card">
+              <img src="./aac-images/events/event2.jpg" alt="Audit Seminar" />
+              <div class="event-info">
+                <h3>Audit Seminar</h3>
+                <p class="event-date">Dec 15, 2025 | Zoom</p>
+                <p class="event-desc">
+                  Interactive seminar on auditing best practices.
+                </p>
+                <div class="event-buttons">
+                  <a
+                    href="https://forms.gle/..."
+                    target="_blank"
+                    class="btn-primary"
+                    >RSVP</a
+                  >
+                  <a
+                    href="https://instagram.com/..."
+                    target="_blank"
+                    class="btn-ghost"
+                    >Instagram</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Add more event cards here -->
           </div>
         </div>
       </section>
     </main>
-</div>
-
-   
   </body>
 </html>
