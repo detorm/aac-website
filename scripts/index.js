@@ -21,7 +21,7 @@ let index = 0;
 const interval = setInterval(() => {
   index = (index + 1) % images.length;
   preloaderImg.src = images[index];
-}, 100); // change every 100ms (0.1s)
+}, 250); // change every 100ms (0.1s)
 
 // Remove preloader after 3.5 seconds
 setTimeout(() => {
