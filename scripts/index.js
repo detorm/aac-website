@@ -1,26 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  const slidesPRE = document.querySelectorAll(".slide");
-    let index = 0;
-
-    const interval = 120; // CHANGE SPEED HERE (ms)
-
-    function showNext() {
-        slidesPRE.forEach((s, i) => s.style.opacity = i === index ? "1" : "0");
-        index = (index + 1) % slidesPRE.length;
-    }
-
-    setInterval(showNext, interval);
-    showNext();
-
-    // Remove preloader when everything loads
-    window.onload = () => {
-        setTimeout(() => {
-            document.getElementById("preloader").style.opacity = "0";
-            document.getElementById("preloader").style.pointerEvents = "none";
-        }, 600); // Delay removing if needed
-    };
-
   const buttonPrev = document.querySelector(".slider-section__prev-button");
   const buttonNext = document.querySelector(".slider-section__next-button");
 
