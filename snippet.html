@@ -1,23 +1,76 @@
-<section class="board-slider">
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide"><img src="./aac-images/aac-board/aac-bastyqs.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="./aac-images/aac-board/aac-hr.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="./aac-images/aac-board/aac-pr.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="./aac-images/aac-board/aac-event.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="./aac-images/aac-board/aac-education.jpg" alt=""></div>
-            ...
-          </div>
-          <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
+.events-filter select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
 
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+.events-filter select:hover {
+  border-color: #1a73e8;
+  box-shadow: 0 2px 6px rgba(26, 115, 232, 0.2);
+}
 
-          <!-- If we need scrollbar -->
-          <div class="swiper-scrollbar"></div>
-        </div>
-      </section>
+.events-container {
+  display: grid;
+  grid-row: auto;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.event-card h3 {
+  margin-top: 0;
+  color: #1a73e8;
+}
+
+.event-card p {
+  margin: 5px 0;
+}
+
+.event-card a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.event-card a:hover {
+  text-decoration: underline;
+}
+
+.upcoming-events h1{
+  text-align: center;
+  padding: 40px 0;
+}
+.events-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.events-filter {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.events-filter label {
+  font-weight: bold;
+  font-size: 1rem;
+}

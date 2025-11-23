@@ -36,11 +36,13 @@
             <a href="#about-us">About</a>
             <a href="#board">Board</a>
             <a href="#events">Events</a>
-            <a href="#">Contact</a>
+            <a href="#footer">Contact</a>
           </nav>
 
           <div class="join-us">
-            <button class="join-btn">Join Us</button>
+            <button class="join-btn" onclick="location.href='#footer'">
+              Join Us
+            </button>
           </div>
         </div>
       </header>
@@ -55,7 +57,9 @@
                 auditing, accounting practices, and industry events.
               </p>
               <div class="hero-actions">
-                <button class="btn-primary">Get Started</button>
+                <button class="btn-primary" onclick="location.href='#about-us'">
+                  Get Started
+                </button>
                 <button
                   class="btn-ghost"
                   onclick="window.open('https://www.instagram.com/nu__aac/', '_blank')"
@@ -104,17 +108,16 @@
                   <div class="swiper background-swiper">
                     <div class="swiper-wrapper">
                       <!-- Background Slide 1 -->
-
                       <div
                         class="swiper-slide slide"
-                        data-title="PRESIDENTIAL"
-                        data-desc="President, and her vices."
+                        data-title="PR"
+                        data-desc="People responsible for PR."
                       >
                         <img
-                          src="./aac-images/aac-board/aac-bastyqs.jpg"
-                          alt="PRESIDENTIAL"
+                          src="./aac-images/aac-board/aac-pr.jpg"
+                          alt="Hidden Beauty"
                           width="768"
-                          height="1024"
+                          height="929"
                           loading="lazy"
                         />
                       </div>
@@ -136,21 +139,19 @@
                       </div>
 
                       <!-- Background Slide 3 -->
-
                       <div
                         class="swiper-slide slide"
-                        data-title="PR"
-                        data-desc="People responsible for PR."
+                        data-title="PRESIDENTIAL"
+                        data-desc="President, and her vices."
                       >
                         <img
-                          src="./aac-images/aac-board/aac-pr.jpg"
-                          alt="Hidden Beauty"
+                          src="./aac-images/aac-board/aac-bastyqs.jpg"
+                          alt="PRESIDENTIAL"
                           width="768"
-                          height="929"
+                          height="1024"
                           loading="lazy"
                         />
                       </div>
-
                       <!-- Background Slide 4 -->
 
                       <div
@@ -193,10 +194,10 @@
 
                       <div class="swiper-slide centered-swiper__slide">
                         <img
-                          src="./aac-images/aac-board/aac-bastyqs.jpg"
-                          alt="Golden Silence"
+                          src="./aac-images/aac-board/aac-pr.jpg"
+                          alt="Hidden Beauty"
                           width="768"
-                          height="1024"
+                          height="929"
                           loading="lazy"
                         />
                       </div>
@@ -214,13 +215,12 @@
                       </div>
 
                       <!-- Centered Slide 3 -->
-
                       <div class="swiper-slide centered-swiper__slide">
                         <img
-                          src="./aac-images/aac-board/aac-pr.jpg"
-                          alt="Hidden Beauty"
+                          src="./aac-images/aac-board/aac-bastyqs.jpg"
+                          alt="Golden Silence"
                           width="768"
-                          height="929"
+                          height="1024"
                           loading="lazy"
                         />
                       </div>
@@ -276,17 +276,16 @@
 
         <section class="upcoming-events" id="events">
           <h1>Events</h1>
+          <div class="events-filter">
+            <label for="events-select">Show events:</label>
+            <select id="events-select">
+              <option value="upcoming" selected>Upcoming</option>
+              <option value="past">Past</option>
+              <option value="all">All</option>
+            </select>
+          </div>
           <div class="container">
             <div class="events-section">
-              <div class="events-filter">
-                <label for="events-select">Show events:</label>
-                <select id="events-select">
-                  <option value="upcoming" selected>Upcoming</option>
-                  <option value="past">Past</option>
-                  <option value="all">All</option>
-                </select>
-              </div>
-
               <div id="events-container" class="events-container">
                 <!-- Event cards rendered here -->
               </div>
@@ -294,7 +293,72 @@
           </div>
         </section>
 
-        
+        <section class="partners">
+          <div class="container">
+            <div class="aac-partners">
+              <h2>Our trusted partners</h2>
+              <div class="aac-partners-images">
+                <img src="./aac-images/aac-partners/kpmg.svg" alt="" />
+                <img src="./aac-images/aac-partners/cci.svg" alt="" />
+                <img id="ey" src="./aac-images/aac-partners/ey.png" alt="" />
+                <img
+                  id="mckinsey"
+                  src="./aac-images/aac-partners/mckinsey.png"
+                  alt=""
+                />
+                <img
+                  id="processingkz"
+                  src="./aac-images/aac-partners/processingkz.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer id="footer">
+          <div class="container">
+            <div class="footer-wrapper">
+              <!-- Left side: logo + description -->
+              <div class="footer-left">
+                <div class="footer-logo">
+                  <img src="./aac-images/aac-logo.jpg" alt="AAC Logo" />
+                  <p>Accounting and Auditing Club</p>
+                </div>
+                <div class="footer-desc">
+                  <p>
+                    Explore key principles in accounting and finance, network
+                    with industry leaders and more together with AAC.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Right side: contacts/socials -->
+              <div class="footer-right">
+                <div class="footer-contact-item">
+                  <h4>Telegram</h4>
+                  <a href="https://t.me/nu_aac" target="_blank">
+                    <img
+                      src="./aac-images/aac-partners/telegram.svg"
+                      alt="Telegram"
+                    />
+                  </a>
+                </div>
+                <div class="footer-contact-item">
+                  <h4>Instagram</h4>
+                  <a href="https://www.instagram.com/nu__aac/" target="_blank">
+                    <img
+                      src="./aac-images/aac-partners/instagram.svg"
+                      alt="Instagram"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p id="copyright">&copy; 2025 AAC NU. All rights reserved.</p>
+        </footer>
       </main>
     </div>
   </body>
