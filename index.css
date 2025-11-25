@@ -582,6 +582,9 @@ footer {
   #ey {
     max-width: 30px;
   }
+  #pwc{
+    max-width: 50px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -597,4 +600,90 @@ footer {
     max-width: 100px;
     height: 25px;
   }
+}
+
+
+/* aac history*/
+
+.aac-history h1{
+  text-align: center;
+  padding: 40px 0 0;
+}
+
+.aac-about{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.aac-about-right,
+.aac-about-left{
+  width: 40%;
+}
+
+.aac-about-right img{
+  height: auto;
+  width: 400px;
+}
+
+#aac-about-img1{
+  position: relative;
+  top: 100px;
+}
+
+#aac-about-img2{
+  position: relative;
+  bottom: 10px;
+  left: 100px;
+}
+
+#aac-about-left-pp{
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+    /* 1. Stack the main content columns vertically */
+    .aac-about {
+        flex-direction: column; /* Change from row to column */
+        align-items: center; /* Center items when stacked */
+        padding: 0 20px; /* Add some padding on the sides for small screens */
+    }
+
+    /* 2. Make left and right columns take up full width */
+    .aac-about-right,
+    .aac-about-left {
+        width: 100%; /* Take up the full width of the container */
+        margin-bottom: 20px; /* Add space between the stacked sections */
+    }
+
+    /* 3. Re-organize the images for mobile (Crucial Step) */
+    .aac-about-right {
+        /* Use flex to align images horizontally or stack if needed, but for two large images, stacking is safer. */
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Space between the images */
+    }
+
+    /* 4. Reset the problematic relative positioning */
+    #aac-about-img1,
+    #aac-about-img2 {
+        position: static; /* Remove all desktop-specific positioning */
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%; /* Ensure images take full width of the 100% column */
+    }
+
+    /* 5. Center text for better mobile reading flow */
+    .aac-about-left p {
+        text-align: left; /* General text should be left-aligned for readability */
+        padding: 5px 0;
+    }
+
+    #aac-about-left-pp {
+        text-align: center; /* Keep the bold intro paragraph centered */
+    }
 }

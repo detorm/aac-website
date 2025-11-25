@@ -24,7 +24,7 @@
     </div>
 
     <!-- Main content -->
-    <div id="content" style="display: none">
+    <div id="content" style="display: none;">
       <header>
         <div class="container">
           <div class="logo">
@@ -40,7 +40,10 @@
           </nav>
 
           <div class="join-us">
-            <button class="join-btn" onclick="location.href='#footer'">
+            <button
+              class="join-btn"
+              onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdM28qxGYqmffOg3s37-ClNWbjRL9AOMKV7JwvF3zIKcot2mA/viewform?usp=dialog', '_blank')"
+            >
               Join Us
             </button>
           </div>
@@ -76,6 +79,7 @@
         </section>
 
         <!-- About Us -->
+
         <section class="about-us" id="about-us">
           <div class="container about-container">
             <h1>About AAC — what we are</h1>
@@ -91,6 +95,43 @@
                   accounting
                 </li>
               </ul>
+            </div>
+            <div class="aac-history">
+              <h1>WHY AAC?</h1>
+              <div class="aac-about">
+                <div class="aac-about-left">
+                  <p id="aac-about-left-pp">
+                    Accounting and Auditing Club (AAC) is a professional
+                    development club founded by former employees of the Big 4.
+                    Our mission is to help students gain the knowledge, skills,
+                    and experience needed to build successful careers in
+                    accounting, auditing, and beyond.
+                  </p>
+                  <p>
+                    We organize large-scale events with industry-level
+                    standards, including case championships, professional
+                    bootcamps with Big 4 companies, intellectual games, and
+                    more. Our members also take part in educational lectures and
+                    hands-on workshops led by mentors, allowing them to deepen
+                    their understanding of key financial topics. Beyond
+                    professional growth, AAC offers a welcoming and supportive
+                    community where like-minded students passionate about
+                    finance can learn, connect, and grow together.
+                  </p>
+                </div>
+                <div class="aac-about-right">
+                  <img
+                    id="aac-about-img1"
+                    src="./aac-images/aac-slideshow/slide2.jpg"
+                    alt=""
+                  />
+                  <img
+                    id="aac-about-img2"
+                    src="./aac-images/aac-slideshow/slide3.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -299,6 +340,8 @@
               <h2>Our trusted partners</h2>
               <div class="aac-partners-images">
                 <img src="./aac-images/aac-partners/kpmg.svg" alt="" />
+                <img id="pwc" src="./aac-images/aac-partners/pwc.svg" alt="" />
+                <img src="./aac-images/aac-partners/deloitte.svg" alt="" />
                 <img src="./aac-images/aac-partners/cci.svg" alt="" />
                 <img id="ey" src="./aac-images/aac-partners/ey.png" alt="" />
                 <img
